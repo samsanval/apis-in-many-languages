@@ -1,6 +1,7 @@
-package models
+package database
 
 import (
+	"github.com/samsanval/api-gin/models"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -12,6 +13,6 @@ func ConnectDatabase() {
 	if err != nil {
 		panic("Failed to connect to database!")
 	}
-	database.AutoMigrate(&Book{})
+	database.AutoMigrate(&models.Book{})
 	DB = database
 }
