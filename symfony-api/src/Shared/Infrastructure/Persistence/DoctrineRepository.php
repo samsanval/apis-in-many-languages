@@ -4,6 +4,7 @@
 namespace App\Shared\Infrastructure\Persistence;
 
 
+use App\Shared\Domain\Aggregate\AggregateRoot;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\Entity;
@@ -34,7 +35,7 @@ abstract class DoctrineRepository
      * @throws OptimisticLockException
      * @throws ORMException
      */
-    protected function persist($entity): void
+    protected function persist(AggregateRoot $entity): void
     {
         $this->entityManager()->persist($entity);
         $this->entityManager()->flush($entity);

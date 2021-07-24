@@ -4,7 +4,9 @@
 namespace App\Books\Domain;
 
 
-final class Book
+use App\Shared\Domain\Aggregate\AggregateRoot;
+
+final class Book extends AggregateRoot
 {
 
     private int $id;
