@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Books;
+use App\Books\Application\Find\BookFinder;
+use App\Books\Application\Insert\BookCreateCommand;
+use App\Books\Application\Insert\BookCreateHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,57 +24,26 @@ class BookController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/books", name="books")
-     */
-    public function getAll(): Response
+    public function getByTitle(string $title,BookFinder $bookFinder): Response
     {
-        $em = $this->getDoctrine()->getManager();
-        $response = new Response();
-        $query = $em->createQuery(
-            'SELECT b
-            FROM App\Entity\Books b'
-        );
-        $books = $query->getArrayResult();
-        $response->headers->set('Content-Type', 'application/json');
-        $response->setContent(json_encode($books));
-        return $response;
-
-    }
-    /**
-     * @Route("/book/{title}", name="get_book", methods={"GET"})
-     */
-    public function getByTitle(Request $request): Response
-    {
-        $title = $request->get('title');
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'SELECT b
-            FROM App\Entity\Books b
-            WHERE b.title = :title'
-        );
-        $query->setParameter('title',$title);
-        $book = $query->getArrayResult();
+        $book = $bookFinder($title);
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
-        $response->setContent(json_encode($book));
+        $response->setContent(json_encode($book->getTitle()));
         return $response;
 
 
 
     }
-    /**
-     * @Route("/books/add", name="add_books", methods={"POST"})
-     */
-    public function insert(Request $request)
+
+
+    public function insert(Request $request, BookCreateHandler $creator)
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        $book = new Books();
+
         $contentToArray = $request->toArray();
-        $book->setTitle($contentToArray['title']);
-        $book->setDescription($contentToArray['description']);
-        $entityManager->persist($book);
-        $entityManager->flush();
+        $creator(new BookCreateCommand($contentToArray['id'],$contentToArray['title'], $contentToArray['description']));
+
+
         return new JsonResponse('Inserted');
     }
 
