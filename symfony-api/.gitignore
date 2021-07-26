@@ -9,3 +9,8 @@
 /vendor/
 /mysql/
 ###< symfony/framework-bundle ###
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

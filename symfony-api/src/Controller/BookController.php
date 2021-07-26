@@ -29,7 +29,11 @@ class BookController extends AbstractController
         $book = $bookFinder($title);
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
-        $response->setContent(json_encode($book->getTitle()));
+        $bookJson = array(
+            'title' => $book->getTitle(),
+            'description' => $book->getDescription(),
+        );
+        $response->setContent(json_encode($bookJson));
         return $response;
 
 

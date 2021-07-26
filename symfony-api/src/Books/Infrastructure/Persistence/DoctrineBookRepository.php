@@ -5,7 +5,6 @@ namespace App\Books\Infrastructure\Persistence;
 
 
 use App\Books\Domain\Book;
-use App\Books\Domain\BookNotExist;
 use App\Books\Domain\BookRepository;
 use App\Shared\Infrastructure\Persistence\DoctrineRepository;
 

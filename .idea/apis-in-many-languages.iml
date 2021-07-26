@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/symfony-api/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/symfony-api/tests" isTestSource="true" packagePrefix="App\Tests\" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/runtime" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/dependency-injection" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/cache-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/proxy-manager-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/stopwatch" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/http-client-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/dotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/maker-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/framework-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/config" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/doctrine-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/persistence" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/doctrine-migrations-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/friendsofphp/proxy-manager-lts" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/psr/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/laminas/laminas-code" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/flex" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/var-exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/mtdowling/jmespath.php" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/aws/aws-sdk-php" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony-api/vendor/psr/http-message" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
