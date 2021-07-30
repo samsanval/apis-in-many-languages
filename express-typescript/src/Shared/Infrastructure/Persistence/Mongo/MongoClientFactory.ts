@@ -27,7 +27,7 @@ export class MongoClientFactory {
     }
 
     private static async createAndConnectClient(config: MongoConfig): Promise<MongoClient> {
-        const client = new MongoClient('mongodb://localhost:27017/books-api', { useUnifiedTopology: true, ignoreUndefined: true });
+        const client = new MongoClient('mongodb+srv://samuel:admin@cluster0.kvtho.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useUnifiedTopology: true, ignoreUndefined: true });
 
         await client.connect();
         return client;
