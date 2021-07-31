@@ -9,18 +9,18 @@ package main
 import (
 	"gin-ddd/src/Book/Application"
 	"gin-ddd/src/Book/Infrastructure/Persistence"
-	"github.com/gin-gonic/gin"
-	"github.com/google/wire"
 )
 
 // Injectors from dependency.go:
 
 func InitializeBookFinder() (*Application.BookFinder, error) {
-	postgreBookRepository := Persistence.NewSQLBookRepository()
-	bookFinder := Application.NewBookFinder(postgreBookRepository)
+	sqlBookRepository := Persistence.NewSQLBookRepository()
+	bookFinder := Application.NewBookFinder(sqlBookRepository)
 	return bookFinder, nil
 }
 
-// dependency.go:
-
-var context = wire.Struct(&gin.Context{})
+func InitializeBookCreator() (*Application.BookCreator, error) {
+	sqlBookRepository := Persistence.NewSQLBookRepository()
+	bookCreator := Application.NewBookCreator(sqlBookRepository)
+	return bookCreator, nil
+}

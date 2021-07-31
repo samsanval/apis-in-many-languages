@@ -17,3 +17,10 @@ func InitializeBookFinder() (*Application.BookFinder, error) {
 
 	return &Application.BookFinder{}, nil
 }
+func InitializeBookCreator() (*Application.BookCreator, error) {
+	wire.Build(Persistence.NewSQLBookRepository,
+		wire.Bind(new(Domain.BookRepository), new(*Persistence.SQLBookRepository)),
+		Application.NewBookCreator)
+
+	return &Application.BookCreator{}, nil
+}

@@ -9,7 +9,7 @@ import (
 type SQLBookRepository struct {
 }
 
-func (pbr SQLBookRepository) Search(title string) (Domain.Book, error) {
+func (sbr SQLBookRepository) Search(title string) (Domain.Book, error) {
 	db, err := sql.Open("mysql",
 		"samuel:administrador@tcp(database-1.c6mjvd4f6hsr.us-east-2.rds.amazonaws.com:3306)/symfonyApi")
 	if err != nil {
@@ -29,6 +29,22 @@ func (pbr SQLBookRepository) Search(title string) (Domain.Book, error) {
 		}
 	}(db)
 	return book, nil
+}
+func (sbr SQLBookRepository) Insert(book Domain.Book) error {
+	db, err := sql.Open("mysql",
+		"samuel:administrador@tcp(database-1.c6mjvd4f6hsr.us-east-2.rds.amazonaws.com:3306)/symfonyApi")
+	if err != nil {
+		return err
+	}
+	insertQuery, err := db.Prepare("INSERT INTO books(title,description) VALUES(?,?)")
+	if err != nil {
+		return err
+	}
+	_, er := insertQuery.Exec(book.Title, book.Description)
+	if er != nil {
+		return er
+	}
+	return nil
 }
 
 func NewSQLBookRepository() *SQLBookRepository {

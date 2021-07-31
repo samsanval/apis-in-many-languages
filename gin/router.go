@@ -14,5 +14,10 @@ func SetupRouter() *gin.Engine {
 	bookFinder, _ := InitializeBookFinder()
 	gbc := controllers.NewGetBookController(*bookFinder)
 	router.GET("/book/:title", gbc.Run)
+
+	bookCreator, _ := InitializeBookCreator()
+	createBookController := controllers.NewCreateBookController(*bookCreator)
+
+	router.POST("/book/add", createBookController.Run)
 	return router
 }
