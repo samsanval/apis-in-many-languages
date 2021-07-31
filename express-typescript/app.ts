@@ -1,28 +1,14 @@
 import 'reflect-metadata'
-import * as dotenv from 'dotenv';
+import createDependencies from "./dependency-injection";
+import {createServer} from "http2";
 import express from "express";
-import Router from 'express-promise-router';
+import Router from "express-promise-router";
+import * as dotenv from "dotenv";
 import * as bodyParser from "body-parser";
-import { registerRoutes } from './routes';
 import helmet from "helmet";
-import {container} from "tsyringe";
-import {MongoBookRepository} from "./src/Book/Infrastructure/Persistence/MongoBookRepository";
-import {MongoConfigFactory} from "./src/Shared/Infrastructure/Persistence/Mongo/MongoConfigFactory";
-import {MongoClientFactory} from "./src/Shared/Infrastructure/Persistence/Mongo/MongoClientFactory";
-import {BookCreator} from "./src/Book/Application/BookCreator";
+import {registerRoutes} from "./routes";
 
-container.register("BookRepository", {
-   useClass: MongoBookRepository
-});
-container.register("MongoConfigFactory", {
-   useFactory: MongoConfigFactory.createConfig
-});
-container.register("MongoClientFactory", {
-   useValue: MongoClientFactory.createClient('dev')
-});
-container.register("BookCreator", {
-   useClass: BookCreator
-})
+createDependencies()
 const app = express();
 const router = Router();
 dotenv.config();
