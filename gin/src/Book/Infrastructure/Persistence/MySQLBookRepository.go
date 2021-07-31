@@ -9,7 +9,7 @@ import (
 type SQLBookRepository struct {
 }
 
-func (pbr SQLBookRepository) Search(title string) Domain.Book {
+func (pbr SQLBookRepository) Search(title string) (Domain.Book, error) {
 	db, err := sql.Open("mysql",
 		"samuel:administrador@tcp(database-1.c6mjvd4f6hsr.us-east-2.rds.amazonaws.com:3306)/symfonyApi")
 	if err != nil {
@@ -19,15 +19,16 @@ func (pbr SQLBookRepository) Search(title string) Domain.Book {
 	errorQuery := db.QueryRow("SELECT id, title, description FROM books WHERE title = ?", title).
 		Scan(&book.Id, &book.Title, &book.Description)
 	if errorQuery != nil {
-		panic(errorQuery.Error())
+		return book, &Domain.BookNotExist{Msg: "The book does not exist"}
 	}
+
 	defer func(db *sql.DB) {
 		err := db.Close()
 		if err != nil {
 
 		}
 	}(db)
-	return book
+	return book, nil
 }
 
 func NewSQLBookRepository() *SQLBookRepository {

@@ -13,5 +13,9 @@ func NewBookFinder(repository Domain.BookRepository) *BookFinder {
 }
 
 func (bf BookFinder) Run(title string) Domain.Book {
-	return bf.repository.Search(title)
+	book, err := bf.repository.Search(title)
+	if err != nil {
+		panic(err.Error())
+	}
+	return book
 }
