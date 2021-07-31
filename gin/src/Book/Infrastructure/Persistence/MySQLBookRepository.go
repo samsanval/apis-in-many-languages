@@ -44,6 +44,13 @@ func (sbr SQLBookRepository) Insert(book Domain.Book) error {
 	if er != nil {
 		return er
 	}
+	defer func(db *sql.DB) {
+		err := db.Close()
+		if err != nil {
+
+		}
+	}(db)
+
 	return nil
 }
 
