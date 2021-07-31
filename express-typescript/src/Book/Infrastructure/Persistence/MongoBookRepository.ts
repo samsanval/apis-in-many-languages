@@ -9,7 +9,7 @@ export class MongoBookRepository extends MongoRepository<Book> implements BookRe
     }
 
     public insert(book: Book): Promise<void> {
-        return Promise.resolve(undefined);
+        return this.persist(book.id, book);
     }
 
     public async search(title: string): Promise<Book | null> {

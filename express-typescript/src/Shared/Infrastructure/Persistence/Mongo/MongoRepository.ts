@@ -22,7 +22,7 @@ export abstract class MongoRepository<T extends AggregateRoot>
 
     }
 
-    protected async persist(id: string, aggregateRoot: AggregateRoot): Promise<void>
+    protected async persist(id: number, aggregateRoot: AggregateRoot): Promise<void>
     {
         const collection = await this.collection();
         const document = {...aggregateRoot.toPrimitives(), _id: id, id:undefined};

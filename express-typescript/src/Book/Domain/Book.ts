@@ -1,7 +1,7 @@
 import {AggregateRoot} from "../../Shared/Domain/AggregateRoot";
 
 export default class Book extends AggregateRoot{
-    private id: number;
+    public id: number;
     private title: string
     private description : string
 
@@ -11,15 +11,6 @@ export default class Book extends AggregateRoot{
         this.id = id;
         this.title = title;
         this.description = description;
-    }
-    setId(id: number): void
-    {
-        this.id = id;
-    }
-    setTitle(title: string): void
-    {
-        this.title = title;
-
     }
     setDescription(description: string): void
     {
