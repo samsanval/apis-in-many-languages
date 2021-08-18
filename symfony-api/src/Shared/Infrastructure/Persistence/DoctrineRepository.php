@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\Persistence\ObjectRepository;
 
 abstract class DoctrineRepository
 {
@@ -26,7 +27,7 @@ abstract class DoctrineRepository
         return $this->entityManager;
     }
 
-    public function repository(string $entityClass): EntityRepository
+    public function repository(string $entityClass): ObjectRepository
     {
         return $this->entityManager->getRepository($entityClass);
     }

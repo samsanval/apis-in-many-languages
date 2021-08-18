@@ -69,6 +69,11 @@
       <path value="$PROJECT_DIR$/symfony-api/vendor/aws/aws-sdk-php" />
       <path value="$PROJECT_DIR$/symfony-api/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/symfony-api/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/symfony-api/vendor/symfony/redis-messenger" />
+      <path value="$PROJECT_DIR$/symfony-api/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/symfony-api/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/symfony-api/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/symfony-api/vendor/lambdish/phunctional" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

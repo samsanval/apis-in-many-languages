@@ -4,7 +4,9 @@
 namespace App\Books\Application\Insert;
 
 
-final class BookCreateCommand
+use App\Shared\Domain\Bus\Command\Command;
+
+final class BookCreateCommand implements Command
 {
 
     private int $id;

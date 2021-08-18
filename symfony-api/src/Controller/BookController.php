@@ -4,15 +4,19 @@ namespace App\Controller;
 
 use App\Books\Application\Find\BookFinder;
 use App\Books\Application\Insert\BookCreateCommand;
-use App\Books\Application\Insert\BookCreateHandler;
+use App\Shared\Domain\Bus\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BookController extends AbstractController
+final class BookController extends AbstractController
 {
+
+    public function __construct( protected CommandBus $commandBus){}
+
+
     /**
      * @Route("/book", name="book")
      */
@@ -40,13 +44,11 @@ class BookController extends AbstractController
 
     }
 
-
-    public function insert(Request $request, BookCreateHandler $creator)
+    public function insert(Request $request)
     {
 
         $contentToArray = $request->toArray();
-        $creator(new BookCreateCommand($contentToArray['id'],$contentToArray['title'], $contentToArray['description']));
-
+        $this->commandBus->dispatch(new BookCreateCommand($contentToArray['id'],$contentToArray['title'], $contentToArray['description']));
 
         return new JsonResponse('Inserted');
     }

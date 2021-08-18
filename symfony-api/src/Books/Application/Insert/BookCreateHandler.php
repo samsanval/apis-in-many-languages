@@ -4,7 +4,9 @@
 namespace App\Books\Application\Insert;
 
 
-final class BookCreateHandler
+use App\Shared\Domain\Bus\Command\CommandHandler;
+
+final class BookCreateHandler implements CommandHandler
 {
 
     private BookCreator $creator;
