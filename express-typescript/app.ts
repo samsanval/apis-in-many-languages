@@ -1,6 +1,5 @@
 import 'reflect-metadata'
 import createDependencies from "./dependency-injection";
-import {createServer} from "http2";
 import express from "express";
 import Router from "express-promise-router";
 import * as dotenv from "dotenv";
