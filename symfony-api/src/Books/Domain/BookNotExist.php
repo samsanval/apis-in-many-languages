@@ -4,7 +4,9 @@
 namespace App\Books\Domain;
 
 
-class BookNotExist extends \DomainException
+use DomainException;
+
+class BookNotExist extends DomainException
 {
     private string $title;
 
@@ -23,5 +25,6 @@ class BookNotExist extends \DomainException
     {
         return sprintf('The book <%s> does not exist', $this->title);
     }
+
 
 }
