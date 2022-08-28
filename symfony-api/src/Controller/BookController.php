@@ -28,9 +28,9 @@ final class BookController extends AbstractController
         ]);
     }
 
-    public function getByTitle(string $title,BookFinder $bookFinder): Response
+    public function getByTitle(string $id,BookFinder $bookFinder): Response
     {
-        $book = $bookFinder($title);
+        $book = $bookFinder($id);
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
         $bookJson = array(

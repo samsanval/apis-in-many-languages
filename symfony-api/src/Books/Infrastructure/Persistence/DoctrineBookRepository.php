@@ -5,6 +5,7 @@ namespace App\Books\Infrastructure\Persistence;
 
 
 use App\Books\Domain\Book;
+use App\Books\Domain\BookId;
 use App\Books\Domain\BookRepository;
 use App\Shared\Infrastructure\Persistence\DoctrineRepository;
 
@@ -16,10 +17,10 @@ class DoctrineBookRepository extends DoctrineRepository implements BookRepositor
         $this->persist($book);
     }
 
-    public function search(string $title): ?Book
+    public function search(BookId $id): ?Book
     {
 
-        return $this->repository(Book::class)->findOneBy(array('title' => $title));
+        return $this->repository(Book::class)->find($id);
 
     }
 }

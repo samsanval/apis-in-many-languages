@@ -5,7 +5,7 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="App\Books\Domain\Book" table="books">
-        <id name="id" type="integer" column="id" length="36" />
+        <id name="id" type="book_id" column="id" length="36" />
         <field name="title" column="title"  />
         <field name="description" column="description"  />
     </entity>
