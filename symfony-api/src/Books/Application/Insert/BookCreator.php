@@ -5,6 +5,7 @@ namespace App\Books\Application\Insert;
 
 
 use App\Books\Domain\Book;
+use App\Books\Domain\BookId;
 use App\Books\Domain\BookRepository;
 
 class BookCreator
@@ -17,7 +18,7 @@ class BookCreator
         $this->repository = $repository;
     }
 
-    public function __invoke(int $id, string $title, string $description): void
+    public function __invoke(BookId $id, string $title, string $description): void
     {
         $book= Book::create($id,$title,$description);
         $this->repository->save($book);

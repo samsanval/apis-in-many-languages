@@ -1,9 +1,5 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-
 get_book:
-  path: /book/{title}
+  path: /book/{id}
   controller: App\Controller\BookController::getByTitle
   methods: [GET]
 

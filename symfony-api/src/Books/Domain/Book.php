@@ -9,20 +9,20 @@ use App\Shared\Domain\Aggregate\AggregateRoot;
 final class Book extends AggregateRoot
 {
 
-    private int $id;
+    private BookId $id;
 
     private string $title;
 
     private string $description;
 
-    public function __construct(int $id, string $title, string $description)
+    public function __construct(BookId $id, string $title, string $description)
     {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
     }
 
-    public function getId(): ?int
+    public function getId(): ?BookId
     {
         return $this->id;
     }
@@ -51,7 +51,7 @@ final class Book extends AggregateRoot
         return $this;
     }
 
-    public static function create(int $id, string $title, string $description): self
+    public static function create(BookId $id, string $title, string $description): self
     {
         $book = new self($id, $title, $description);
         return $book;

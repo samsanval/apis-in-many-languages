@@ -5,6 +5,7 @@ namespace App\Books\Application\Find;
 
 
 use App\Books\Domain\Book;
+use App\Books\Domain\BookId;
 use App\Books\Domain\BookNotExist;
 use App\Books\Domain\BookRepository;
 
@@ -17,11 +18,12 @@ final class BookFinder
     {
         $this->repository = $repository;
     }
-    public function __invoke(string $title): Book
+    public function __invoke(string $bookId): Book
     {
-        $book = $this->repository->search($title);
+        $bookId = new BookId($bookId);
+        $book = $this->repository->search($bookId);
         if(!$book) {
-            throw new BookNotExist($title);
+            throw new BookNotExist($bookId);
         }
 
         return $book;
