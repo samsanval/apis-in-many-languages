@@ -8,6 +8,7 @@ use App\Books\Domain\Book;
 use App\Books\Domain\BookId;
 use App\Books\Domain\BookRepository;
 use App\Shared\Infrastructure\Persistence\DoctrineRepository;
+use Doctrine\Common\Collections\Collection;
 
 class DoctrineBookRepository extends DoctrineRepository implements BookRepository
 {
@@ -22,5 +23,10 @@ class DoctrineBookRepository extends DoctrineRepository implements BookRepositor
 
         return $this->repository(Book::class)->find($id);
 
+    }
+
+    public function all(): array
+    {
+        return $this->repository(Book::class)->findAll();
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Books\Application\All\BookAllHandler;
 use App\Books\Application\Find\BookFinder;
 use App\Books\Application\Insert\BookCreateCommand;
+use App\Books\Domain\Book;
 use App\Shared\Domain\Bus\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -28,12 +30,33 @@ final class BookController extends AbstractController
         ]);
     }
 
+    public function all(BookAllHandler $handler): Response
+    {
+        $books = $handler->_invoke();
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        $booksJson = [];
+        /** @var Book $book */
+        foreach ($books as $book) {
+            $booksJson[] = [
+                'id' => $book->getId()->value(),
+                'title' => $book->getTitle(),
+                'description' => $book->getDescription()
+            ];
+
+        }
+        $response->setContent(json_encode($booksJson));
+
+        return $response;
+    }
+
     public function getByTitle(string $id,BookFinder $bookFinder): Response
     {
         $book = $bookFinder($id);
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
         $bookJson = array(
+            'id' => $book->getId()->value(),
             'title' => $book->getTitle(),
             'description' => $book->getDescription(),
         );
