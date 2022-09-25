@@ -1,3 +1,7 @@
+health_check:
+  path: /health-check
+  controller: App\Controller\HealthCheckController
+  methods: [GET]
 get_book:
   path: /book/{id}
   controller: App\Controller\BookController::getByTitle
